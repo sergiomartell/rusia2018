@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "412093571940",
+    "firebase_url": "https://rusia2018-f4dbb.firebaseio.com",
+    "project_id": "rusia2018-f4dbb",
+    "storage_bucket": "rusia2018-f4dbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:412093571940:android:aea2c2e47996d613",
+        "android_client_info": {
+          "package_name": "in.polimatia.rusia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "412093571940-ibnitcvu46ogklu80ifbti381g1g3ac5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnpdgv6EbEAego39cV0J1TvhQ6lhWLdps"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
