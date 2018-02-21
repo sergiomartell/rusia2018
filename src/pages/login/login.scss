@@ -1,2 +1,24 @@
 page-login {
+  .toolbar-background {
+    background: none;
+    border-color: transparent;
+  }
+  .toolbar-title{
+    color: white;
+  }
+  .content{
+    background: url("/assets/img/loginBack.png") no-repeat center;
+    background-size: cover;
+  }
+  .item {
+    padding-top: 2vh;
+    background: none;
+    color: white;
+  }
+  .ion-title{
+    color: white;
+  }
+  form{
+    margin-top: 55vh;
+  }
 }
