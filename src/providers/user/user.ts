@@ -4,6 +4,8 @@ import { Injectable } from '@angular/core';
 
 import { Api } from '../api/api';
 
+import { AngularFireAuth } from 'angularfire2/auth';
+
 /**
  * Most apps have the concept of a User. This is a simple provider
  * with stubs for login/signup/etc.
@@ -27,14 +29,17 @@ import { Api } from '../api/api';
 export class User {
   _user: any;
 
-  constructor(public api: Api) { }
+  constructor(public api: Api , public fAuth : AngularFireAuth) { }
 
   /**
    * Send a POST request to our login endpoint with the data
    * the user entered on the form.
    */
   login(accountInfo: any) {
-    let seq = this.api.post('login', accountInfo).share();
+
+    return this.fAuth.auth
+      .signInWithEmailAndPassword(accountInfo.email, accountInfo.password)
+    /*let seq = this.api.post('login', accountInfo).share();
 
     seq.subscribe((res: any) => {
       // If the API returned a successful response, mark the user as logged in
@@ -46,7 +51,7 @@ export class User {
       console.error('ERROR', err);
     });
 
-    return seq;
+    return seq;*/
   }
 
   /**
@@ -54,18 +59,8 @@ export class User {
    * the user entered on the form.
    */
   signup(accountInfo: any) {
-    let seq = this.api.post('signup', accountInfo).share();
-
-    seq.subscribe((res: any) => {
-      // If the API returned a successful response, mark the user as logged in
-      if (res.status == 'success') {
-        this._loggedIn(res);
-      }
-    }, err => {
-      console.error('ERROR', err);
-    });
-
-    return seq;
+    return this.fAuth.auth
+      .createUserWithEmailAndPassword(accountInfo.email ,accountInfo.password)
   }
 
   /**

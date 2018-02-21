@@ -5,6 +5,7 @@ import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { User } from '../../providers/providers';
 import { MainPage } from '../pages';
 
+
 @IonicPage()
 @Component({
   selector: 'page-signup',
@@ -34,21 +35,24 @@ export class SignupPage {
     })
   }
 
+
   doSignup() {
     // Attempt to login in through our User service
-    this.user.signup(this.account).subscribe((resp) => {
+    console.log(this.account);
+    this.user.signup(this.account).then (res => {
       this.navCtrl.push(MainPage);
-    }, (err) => {
+      console.log(res);
+    })
+      .catch(err=>{
+        // Unable to sign up
+        console.log(JSON.stringify(err));
+        let toast = this.toastCtrl.create({
+          message: err,
+          duration: 3000,
+          position: 'top'
+        });
+        toast.present();
 
-      this.navCtrl.push(MainPage);
-
-      // Unable to sign up
-      let toast = this.toastCtrl.create({
-        message: this.signupErrorString,
-        duration: 3000,
-        position: 'top'
       });
-      toast.present();
-    });
   }
 }

@@ -8,12 +8,26 @@ import { IonicStorageModule, Storage } from '@ionic/storage';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyB4Wx7GUjoVeQaJjpsaxTdSkIGmlnym-IU",
+  authDomain: "rusia2018-f4dbb.firebaseapp.com",
+  databaseURL: "https://rusia2018-f4dbb.firebaseio.com",
+  projectId: "rusia2018-f4dbb",
+  storageBucket: "rusia2018-f4dbb.appspot.com",
+  messagingSenderId: "412093571940"
+};
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -51,7 +65,11 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -63,6 +81,7 @@ export function provideSettings(storage: Storage) {
     User,
     Camera,
     SplashScreen,
+    AngularFireDatabase,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
