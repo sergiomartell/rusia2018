@@ -3,17 +3,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Items } from '../../providers/providers';
 
+
 @IonicPage()
 @Component({
   selector: 'page-item-detail',
   templateUrl: 'item-detail.html'
 })
 export class ItemDetailPage {
-  item: any;
+  matches: any;
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
-    this.item = navParams.get('item') || items.defaultItem;
-    console.log(JSON.stringify(JSON.stringify(this.item)));
+    this.matches = navParams.get('item') || items.defaultItem;
+    console.log(JSON.stringify(JSON.stringify(this.matches)));
 
   }
 
