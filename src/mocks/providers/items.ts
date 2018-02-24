@@ -2,12 +2,16 @@ import { Injectable } from '@angular/core';
 
 import { Item } from '../../models/item';
 
-import { AngularFireDatabase } from 'angularfire2/database';
+
 
 
 @Injectable()
 export class Items {
   items: Item[] = [];
+
+  worldCupData: any = {
+
+  };
 
   defaultItem: any = {
     "name": "Burt Bear",
@@ -16,10 +20,13 @@ export class Items {
   };
 
 
-  constructor(public afDB : AngularFireDatabase) { }
+  constructor() { }
+
+  fetch(){
+    return this.worldCupData;
+  }
 
   query() {
-    return this.afDB.list('masterSheet').valueChanges();
   }
 
   add(item: Item) {

@@ -51,7 +51,7 @@ export class ListMasterPage {
    */
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
-      item: item
+      item: item.matches
     });
   }
 }

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
  */
 @Injectable()
 export class Api {
-  url: string = 'https://example.com/api/v1';
+  url: string = 'https://soccer.sportmonks.com/api/v2.0/leagues?api_token=lg8T6lQHXEYFcuU9NXVgy1ALXOLL9chvIhZnn3e8lodwewTgLWqUT82CSwqo';
 
   constructor(public http: HttpClient) {
   }

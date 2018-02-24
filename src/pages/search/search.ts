@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -11,9 +13,11 @@ import { Items } from '../../providers/providers';
 })
 export class SearchPage {
 
-  currentItems: any = [];
+  currentItems: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items, public afDB: AngularFireDatabase) {
+    this.currentItems = afDB.list('data/groups').valueChanges();
+  }
 
   /**
    * Perform a service for the proper items.
@@ -21,7 +25,7 @@ export class SearchPage {
   getItems(ev) {
     let val = ev.target.value;
     if (!val || !val.trim()) {
-      this.currentItems = [];
+      //this.currentItems = [];
       return;
     }
    /* this.currentItems = this.items.query({
@@ -34,7 +38,7 @@ export class SearchPage {
    */
   openItem(item: Item) {
     this.navCtrl.push('ItemDetailPage', {
-      item: item
+      item: item.matches
     });
   }
 
