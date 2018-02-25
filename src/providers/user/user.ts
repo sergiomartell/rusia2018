@@ -36,7 +36,6 @@ export class User {
    * the user entered on the form.
    */
   login(accountInfo: any) {
-
     return this.fAuth.auth
       .signInWithEmailAndPassword(accountInfo.email, accountInfo.password)
   }
@@ -55,6 +54,10 @@ export class User {
    */
   logout() {
     this._user = null;
+  }
+
+  checkLogin(){
+    return this.fAuth.authState;
   }
 
   /**

@@ -39,7 +39,8 @@ export class LoginPage {
   doLogin() {
     this.user.login(this.account).then (res => {
       this.navCtrl.push(MainPage);
-      console.log(res);
+      console.log(JSON.stringify(res));
+      this.user._loggedIn(res)
     })
       .catch(err=>{
         // Unable to sign up

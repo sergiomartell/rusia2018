@@ -3,9 +3,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
+
 
 @Component({
   template: `<ion-menu [content]="content">
@@ -45,13 +47,24 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' }
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen) {
+  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, public auth: AngularFireAuth) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      //check logged in status
+      auth.auth.onAuthStateChanged(user =>{
+        if (user){
+          console.log('user is logged in : '+ JSON.stringify(user));
+          this.rootPage = 'TabsPage'
+        }
+        else {
+          this.rootPage = 'TutorialPage'
+        }
+      })
     });
+
     this.initTranslate();
   }
 
@@ -80,6 +93,7 @@ export class MyApp {
       this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
     });
   }
+
 
   openPage(page) {
     // Reset the content nav to have just this page

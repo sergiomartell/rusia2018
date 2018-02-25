@@ -16,13 +16,41 @@
 
   <ion-list>
     <ion-item-sliding *ngFor="let item of currentItems | async">
-      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='grupo'">
-        <ion-avatar item-start>
-          <img [src]= "'assets/img/groups/'+ item[1] + '.png'" />
-        </ion-avatar>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='vuelo'">
+        <ion-icon name="ios-plane" item-start></ion-icon>
         <h2>{{item[0]}}</h2>
         <p>{{item[1]}}</p>
-        <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+        <ion-note>{{item[2]| date: 'dd/MM/yyyy H:mm'}}</ion-note>
+      </button>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='transporte'">
+        <ion-icon name="ios-bus" item-start></ion-icon>
+        <h2>{{item[0]}}</h2>
+        <p>{{item[1]}}</p>
+        <ion-note>{{item[2]| date: 'dd/MM/yyyy H:mm'}}</ion-note>
+      </button>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='reunión'">
+        <ion-icon name="ios-pin" item-start></ion-icon>
+        <h2>{{item[0]}}</h2>
+        <p>{{item[1]}}</p>
+        <ion-note>{{item[2]| date: 'dd/MM/yyyy H:mm'}}</ion-note>
+      </button>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='actividad'">
+        <ion-icon name="ios-bonfire" item-start></ion-icon>
+        <h2>{{item[0]}}</h2>
+        <p>{{item[1]}}</p>
+        <ion-note>{{item[2]| date: 'dd/MM/yyyy H:mm'}}</ion-note>
+      </button>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='hotel'">
+        <ion-icon name="ios-home" item-start></ion-icon>
+        <h2>{{item[0]}}</h2>
+        <p>{{item[1]}}</p>
+        <ion-note>{{item[3]}}</ion-note>
+      </button>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='comida'">
+        <ion-icon name="md-restaurant" item-start></ion-icon>
+        <h2>{{item[0]}}</h2>
+        <p>{{item[1]}}</p>
+        <ion-note>{{item[2]| date: 'dd/MM/yyyy H:mm'}}</ion-note>
       </button>
 
       <ion-item-options>

@@ -1,4 +1,7 @@
 page-item-detail {
+  .toolbar-title{
+    text-transform: uppercase;
+  }
   .item-profile {
     width: 100%;
     background-position: center center;
@@ -25,4 +28,5 @@ page-item-detail {
     font-size: 1.2rem;
     color: black;
   }
+
 }
