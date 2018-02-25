@@ -7,7 +7,7 @@ page-login {
     color: white;
   }
   .content{
-    background: url("/assets/img/loginBack.png") no-repeat center;
+    background: url("../assets/img/loginBack.png") no-repeat center;
     background-size: cover;
   }
   .item {
@@ -19,6 +19,6 @@ page-login {
     color: white;
   }
   form{
-    margin-top: 55vh;
+    margin-top: 35vh;
   }
 }
