@@ -1,4 +1,5 @@
 {
+  "BACK_BUTTON_TEXT": "Regresar",
   "NAME": "Nombre",
   "PASSWORD": "Contraseña",
   "EMAIL": "Email",
@@ -11,14 +12,15 @@
 
   "MAP_TITLE": "Mapa",
 
-  "TUTORIAL_SLIDE1_TITLE": "Bienvenido/a al Ionic Super Starter",
-  "TUTORIAL_SLIDE1_DESCRIPTION": "El <b>Ionic Super Starter</b> es un starter de Ionic completo con muchas páginas preconstruidas y mejores prácticas.",
+  "TUTORIAL_SLIDE1_TITLE": "¡Felicidades Ganador Barcel!",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "El equipo de <b>Barcel</b> te da la bienvenida a la experiencia del mundial Rusia 2018.",
 
-  "TUTORIAL_SLIDE2_TITLE": "Cómo usar el Super Starter",
-  "TUTORIAL_SLIDE2_DESCRIPTION": "Monta los varios tipos de página que quieras y quita los que no. Hemos incluido muchas estructuras de página comunes en apps móviles, como páginas de inicio de sesión y registro, pestañas, y esta página de tutorial.",
+  "TUTORIAL_SLIDE2_TITLE": "¡No te pierdas nada!",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Vas a recibir notificaciones e información sobre todo lo que les tenemos preparados.",
 
-  "TUTORIAL_SLIDE3_TITLE": "Empezando",
-  "TUTORIAL_SLIDE3_DESCRIPTION": "¿Necesitas ayuda? Échale un vistazo al README del Super Starter para ver el tutorial completo.",
+  "TUTORIAL_SLIDE3_TITLE": "Estamos aquí para asistirte",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "¿Necesitas ayuda? Siempre puedes contactar a <b>Farah y Diego</b>, sus anfitriones.",
+  "TUTORIAL_SLIDE4_TITLE": "¿Estás listo?",
 
   "SETTINGS_TITLE": "Ajustes",
   "SETTINGS_OPTION1": "Opción 1",
@@ -44,5 +46,8 @@
 
   "CARDS_TITLE": "Social",
 
-  "SEARCH_TITLE": "Partidos"
+  "SEARCH_TITLE": "Partidos",
+  "DETAILS-INTRO": "Detalles",
+  "ADD-TO-CAL": "Agenda",
+  "GO-TO-LOC": "Navega"
 }

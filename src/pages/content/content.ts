@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Calendar } from '@ionic-native/calendar';
 
 @IonicPage()
 @Component({
@@ -9,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class ContentPage {
   data: any;
   source: any;
-  constructor(public navCtrl: NavController, public params : NavParams ) {
+  constructor(public navCtrl: NavController, public params : NavParams, public cal : Calendar) {
     this.source = params.get('source');
     let input = params.get('item');
     if(this.source == 'sheet'){
       this.data = {
-        "title" : input[0],
-        "subtitle" : input[1],
+        "type" : input[0],
+        "title" : input[1],
         "date" : input[2],
-        "notes": input[3],
-        "details1" : input[4],
+        "location": input[3],
+        "notes" : input[4],
       };
       if(input[5] !== ""){
         this.data.profilePic = input[5]
@@ -27,6 +28,23 @@ export class ContentPage {
         this.data.profilePic = 'assets/img/animatedHeader.png';
       }
     }
+  }
+
+  addToCalendar (){
+    console.log(JSON.stringify(this.data));
+    console.log('addToCalendar is running');
+    let title = this.data.title;
+    let location = this.data.location;
+    let notes = this.data.notes;
+    let startDate = this.data.date;
+    console.log(startDate);
+    this.cal.createEventInteractively(title,location,notes,new Date(startDate))
+      .then(res=>{
+        console.log(res)
+      })
+      .catch(err=>{
+        console.log(err)
+      })
   }
 
 }

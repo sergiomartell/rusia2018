@@ -66,5 +66,8 @@
 
   "SEARCH_TITLE": "Matches",
   "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"México\"",
-  "GROUP-MEMBERS": "Grupo"
+  "GROUP-MEMBERS": "Grupo",
+  "DETAILS-INTRO": "Details",
+  "ADD-TO-CAL": "Calendar",
+  "GO-TO-LOC": "Navigate"
 }

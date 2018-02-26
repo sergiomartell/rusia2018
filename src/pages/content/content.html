@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      {{data.title}}
+      {{data.type}}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -12,8 +12,8 @@
       <ion-grid>
         <ion-row>
           <ion-col col-8>
-            <h2>{{data.subtitle}}</h2>
-            <p>{{data.notes}}</p>
+            <h2>{{data.title}}</h2>
+            <p>{{data.location}}</p>
           </ion-col>
           <ion-col col-4 text-end >
             <p>{{data.date | date: 'dd/MM/yyyy H:mm'}}</p>
@@ -25,12 +25,10 @@
   </div>
   <div padding class="item-body">
     <h3>{{'DETAILS-INTRO'|translate}}</h3>
-    <h4>{{data.details1}}</h4>
+    <h4>{{data.notes}}</h4>
   </div>
   <ion-buttons>
-    <button ion-button color="dark" icon-left> <ion-icon name="ios-calendar"> {{'ADD-TO-CAL'|translate}}</ion-icon></button>
+    <button ion-button color="dark" icon-left (click)="addToCalendar()"> <ion-icon name="ios-calendar"> {{'ADD-TO-CAL'|translate}}</ion-icon></button>
     <button ion-button color="dark" icon-left> <ion-icon name="ios-navigate"> {{'GO-TO-LOC'|translate}}</ion-icon></button>
   </ion-buttons>
-
-
 </ion-content>
