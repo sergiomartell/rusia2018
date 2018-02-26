@@ -15,7 +15,6 @@ export class ItemDetailPage {
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
     this.group = navParams.get('group');
     this.matches = navParams.get('item') || items.defaultItem;
-    console.log(JSON.stringify(JSON.stringify(this.matches)));
   }
 
 }

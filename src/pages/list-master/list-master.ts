@@ -50,8 +50,9 @@ export class ListMasterPage {
    * Navigate to the detail page for this item.
    */
   openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item.matches
+    this.navCtrl.push('ContentPage', {
+      item: item,
+      source: 'sheet'
     });
   }
 }

@@ -1,3 +1,42 @@
-page-home {
+page-content {
+  padding: 0;
+  .toolbar-title{
+    text-transform: uppercase;
+  }
+  .content-header {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    height: 30vh;
+  }
 
+  .item-detail {
+    background-color: rgba(0,0,0, 0.5);
+    width: 100%;
+    color: white;
+    position: absolute;
+  }
+  .item-detail h2 {
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 0;
+    line-height: 3rem;
+  }
+
+  .item-body {
+    background-color: #f4f4f4;
+  }
+
+  .item-body h4 {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+  .item-detail p {
+    margin: 0;
+    color: lightgrey;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
 }
