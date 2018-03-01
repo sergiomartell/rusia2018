@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="in.polimatia.rusia" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="in.polimatia.russia" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Mundial 2018</name>
     <description>Aplicación para ganadores de concurso Barcel - Mundial 2018.</description>
     <author email="sergio@polimatia.in" href="http://polimatia.in/">Polimatía Producciones</author>

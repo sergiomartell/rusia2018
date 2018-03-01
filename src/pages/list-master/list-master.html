@@ -44,7 +44,6 @@
         <ion-icon name="ios-home" item-start></ion-icon>
         <h2>{{item[1]}}</h2>
         <p>{{item[3]}}</p>
-        <ion-note>{{item[3]}}</ion-note>
       </button>
       <button ion-item (click)="openItem(item)" *ngIf="item[0] =='comida'">
         <ion-icon name="md-restaurant" item-start></ion-icon>
@@ -57,6 +56,11 @@
         <h2>{{item[1]}}</h2>
         <p>{{item[3]}}</p>
         <ion-note>{{item[2]| date: 'dd/MM/yyyy H:mm'}}</ion-note>
+      </button>
+      <button ion-item (click)="openItem(item)" *ngIf="item[0] =='información'">
+        <ion-icon name="md-information-circle" item-start></ion-icon>
+        <h2>{{item[1]}}</h2>
+        <p>{{item[3]}}</p>
       </button>
 
       <ion-item-options>
