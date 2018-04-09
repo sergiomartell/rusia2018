@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Settings } from '../../providers/providers';
+import { User } from '../../providers/providers';
 
 /**
  * The Settings page is a simple form that syncs with a Settings provider
@@ -36,6 +37,7 @@ export class SettingsPage {
 
   constructor(public navCtrl: NavController,
     public settings: Settings,
+    public user: User,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
     public translate: TranslateService) {
@@ -91,5 +93,10 @@ export class SettingsPage {
 
   ngOnChanges() {
     console.log('Ng All Changes');
+  }
+  doLogout() {
+    this.user.logout().then(res=>{
+      console.log(JSON.stringify(res));
+    })
   }
 }

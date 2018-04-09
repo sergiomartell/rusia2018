@@ -38,6 +38,7 @@
   "SIGNUP_TITLE": "Registro",
   "SIGNUP_ERROR": "No se ha podido crear la cuenta. Por favor revisa la información de la cuenta e inténtalo de nuevo.",
   "SIGNUP_BUTTON": "Registrarse",
+  "LOGOUT_BUTTON": "Salir",
 
   "LIST_MASTER_TITLE": "Avisos",
 

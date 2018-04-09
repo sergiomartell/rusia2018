@@ -53,7 +53,8 @@ export class User {
    * Log the user out, which forgets the session
    */
   logout() {
-    this._user = null;
+    return this.fAuth.auth
+      .signOut()
   }
 
   checkLogin(){

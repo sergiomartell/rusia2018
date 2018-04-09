@@ -15,7 +15,8 @@
 <ion-content>
 
   <ion-list>
-    <ion-item-sliding *ngFor="let item of currentItems | async">
+    <ion-item *ngFor="let item of currentItems | async">
+      <div ion-item color="light" *ngIf="item[0] == 'dia'">{{item[1]}}</div>
       <button ion-item (click)="openItem(item)" *ngIf="item[0] =='vuelo'">
         <ion-icon name="ios-plane" item-start></ion-icon>
         <h2>{{item[1]}}</h2>
@@ -62,12 +63,11 @@
         <h2>{{item[1]}}</h2>
         <p>{{item[3]}}</p>
       </button>
-
-      <ion-item-options>
-        <button ion-button color="danger" (click)="deleteItem(item)">
-          {{ 'DELETE_BUTTON' | translate }}
-        </button>
-      </ion-item-options>
-    </ion-item-sliding>
+      <button ion-item color="secondary" (click)="openItem(item)" *ngIf="item[0] =='partido'">
+        <ion-icon name="ios-football" item-start></ion-icon>
+        <h2>{{item[1]}}</h2>
+        <p>{{item[3]}}</p>
+      </button>
+    </ion-item>
   </ion-list>
 </ion-content>
