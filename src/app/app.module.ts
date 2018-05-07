@@ -20,6 +20,8 @@ import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
+
 
 // AF2 Settings
 export const firebaseConfig = {
@@ -72,7 +74,6 @@ export function provideSettings(storage: Storage) {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule
-
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -87,6 +88,7 @@ export function provideSettings(storage: Storage) {
     AngularFireDatabase,
     StatusBar,
     Calendar,
+    BackgroundGeolocation,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }

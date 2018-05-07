@@ -4,6 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { TranslateService } from '@ngx-translate/core';
 import { Config, Nav, Platform } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { BackgroundGeolocation, BackgroundGeolocationConfig, BackgroundGeolocationResponse } from '@ionic-native/background-geolocation';
 
 import { FirstRunPage } from '../pages/pages';
 import { Settings } from '../providers/providers';
@@ -47,10 +48,30 @@ export class MyApp {
     { title: 'Search', component: 'SearchPage' }
   ]
 
-  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, public auth: AngularFireAuth) {
+  constructor(private translate: TranslateService, platform: Platform, settings: Settings, private config: Config, private statusBar: StatusBar, private splashScreen: SplashScreen, public auth: AngularFireAuth, private bgGeo : BackgroundGeolocation) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      const config: BackgroundGeolocationConfig = {
+        desiredAccuracy: 10,
+        stationaryRadius: 20,
+        distanceFilter: 30,
+        debug: true, //  enable this hear sounds for background-geolocation life-cycle.
+        stopOnTerminate: false, // enable this to clear background location settings when the app terminates
+      };
+
+      this.bgGeo.configure(config)
+        .subscribe((location: BackgroundGeolocationResponse) => {
+
+          console.log(location);
+
+          // IMPORTANT:  You must execute the finish method here to inform the native plugin that you're finished,
+          // and the background-task may be completed.  You must do this regardless if your HTTP request is successful or not.
+          // IF YOU DON'T, ios will CRASH YOUR APP for spending too much time in the background.
+          this.bgGeo.finish(); // FOR IOS ONLY
+
+        });
+
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       //check logged in status
